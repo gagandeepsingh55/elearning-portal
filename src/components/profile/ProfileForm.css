@@ -1,0 +1,38 @@
+.image {
+  /* Layout Properties */
+  top: 222px;
+  left: 140px;
+  width: 260px;
+  height: 209px;
+  /* UI Properties */
+  background: transparent url("img/Mask Group 2.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+}
+.formlayout {
+  /* Layout Properties */
+  top: 222px;
+  left: 416px;
+  width: 1364px;
+  height: 1045px;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+}
+.App_layout{
+    /* Layout Properties */
+    top: 0px;
+    left: 0px;
+    width: 1920px;
+    height: 1385px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.image {
+    left: 140px;
+width: 260px;
+height: 209px;
+background: transparent url('img/Mask Group 2.png') 0% 0% no-repeat padding-box;
+opacity: 1;
+}
