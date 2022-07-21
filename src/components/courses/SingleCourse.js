@@ -1,57 +1,60 @@
+import classes from "./SingleCourse.css";
+import { useNavigate } from "react-router-dom";
+
 const SingleCourse = (props) => {
+  const { onAdd, currentPosts, product } = props;
+  let navigate = useNavigate();
 
-  const addCourseToCart = (event) => {
-    // event.preventDefault();
-    // const expenseData ={
-    //     title:enteredTitle,
-    //     amount:enterendAmount,
-    //     date: new Date(enterendDate)
-    // }
-    console.log(event);
-    // setEnteredTitle('');
-    // setEnterendAmount('');
-    // setEnterendDate('');
-}
+  const routeChange = (event) => {
+    // console.log(event.target.getAttribute('data-arg1'));
+    let path = `/coursedetail/${event.target.getAttribute('data-arg1')}`;
+    navigate(path);
+  };
+ 
 
+  // console.log("currentPosts")
+  // console.log(currentPosts)
+  return (
+    <>
+      {currentPosts.map((record) => {
+        return (
+          <div className={classes.card}>
+            <div className={classes.box}></div>
+            <div className={classes.coursename}>
+              {record.title}
 
-
-  return <>  
-  { props.course.map((record) => {
-    console.log(record.actual_price)
-    return (
-
-// <form onSubmit={submitHandler}>
-//     <div className='new-expense__controls'>
-//         <div className='new-expense__control'>
-//             <label>Title</label>
-//             <input type='text' value={enteredTitle} onChange={onChangeHandler}/>    
-//         </div>
-//         <div className='new-expense__control'>
-//             <label>Amount</label>
-//             <input type='number' value={enterendAmount} onChange={amountChangeHandler}/>    
-//         </div>
-//         <div className='new-expense__control'>
-//             <label>Date</label>
-//             <input type='date' value={enterendDate} onChange={dateChangeHandler}/>    
-//         </div>
-//     </div>
-//     <div className='new-expense__actions'>
-//         <button type='submit'>Add Expense</button>
-//     </div>
-// </form>
-      <div className="course-item">
-        <div className="course-image">
-          <img alt="Image Not found"></img>
-        </div>
-        <div className="course-item__description">{record.description}</div>
-        <div className="course-item__author">{record.author}</div>
-        <div className="course-item__price">{record.discounted_price}</div>
-        <div className="course-item__price">{record.actual_price}</div>
-        <button onClick={addCourseToCart}>Add To Cart</button>
-      </div>
-    );
-  })}
-  </>
+              <div>
+                <button className={classes.react} onClick={routeChange}>
+                  React
+                </button>
+                <button className={classes.react} onClick={routeChange}>
+                  React
+                </button>
+              </div>
+            </div>
+            <div>{record.author}</div>
+            <div>
+              <img src="/star.png" className={classes.headerimg} alt="star"/>
+            </div>
+            <div className="course-item__price">{record.discounted_price}</div>
+            <div className="course-item__price">{record.actual_price}</div>
+            <button className={classes.btn} onClick={() => onAdd(record)}>
+              Add To Cart
+            </button>
+            <img
+              src="/arrow.png"
+              className={classes.headerimg}
+              onClick={routeChange}
+              data-arg1={record.id}
+              alt="arrow"
+              
+            />
+          </div>
+        );
+        
+      })}
+    </>
+  );
 };
 
 export default SingleCourse;
