@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import myData from "./../../resourses/coursesMockResponse";
 import AllCourses from "./AllCourses";
 // import Cart from "./Cart";
@@ -26,21 +26,26 @@ const Dashboard = (props) => {
   };
   const [filteredCourse, setFilteredCourse] = useState("Course Price");
   const filterChangeHandler = (order) => {
-
-
+    const asc = [...sortedProduct]
+    const dec = [...sortedProduct]
     setFilteredCourse(order);
-    const numAscending = sortedProduct.sort(
+    const numAscending = asc.sort(
       (a, b) => parseInt(a.actual_price) - parseInt(b.actual_price)
     );
-  
-    const numDescending = sortedProduct.sort(
-      (a, b) => parseInt(b.actual_price) - parseInt(a.actual_price)
+      console.log(numAscending,"numAscending")
+    const numDescending = dec.sort(
+      (b, a) => parseInt(b.actual_price) - parseInt(a.actual_price)
     );
-
-    console.log(order, "order");
-    order==="true"
-      ? changeCartOrder(numAscending)
-      : changeCartOrder(numDescending);
+    console.log(numDescending,"numDescending")
+    console.log(order, "order",typeof(order));
+    // order === "true" ? changeCartOrder(numAscending): changeCartOrder(numDescending) ;
+    if(order === "true"){
+      console.log("inside true")
+      changeCartOrder(numAscending)
+      
+    }else{changeCartOrder(numDescending)
+      console.log(numDescending);
+      console.log("inside false ")}
   };
   const onRemove = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
@@ -104,7 +109,8 @@ const Dashboard = (props) => {
                       className="form-control"
                     />
                     <button className="row">
-                      <img className="" src="/search.png" />
+
+                      <img alt="..." className="" src="/search.png" />
                     </button>
                   </div>
                   <h1 className="text-center">View Your Cart</h1>
