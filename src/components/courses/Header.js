@@ -1,17 +1,14 @@
 import React from "react";
-import classes from "./Header.css";
+// import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <div className={classes.header}>
-      <div className={classes.textbox}>
-        <img src="/header.png" className={classes.headerimg}></img>
-        <div className={classes.text}>
-          <div>Discover Latest Courses on</div>
-
-          <div className={classes.text1}>React</div>
+    <div className="card" style={{background: "black"}}>
+        <div className="card-text">
+          <div className="text-left" style={{color: "white"}}>{props.value}</div>
+          <div className="card-title" style={{color: "white"}}>{props.value2}</div>
         </div>
-      </div>
+        <img src="/Mask Group 1@2x.png" className="card-img-overlay " style={{float:"right"}}></img>
     </div>
   );
 };
