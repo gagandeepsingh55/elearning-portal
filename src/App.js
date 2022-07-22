@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import ProfileForm from "./components/profile/ProfileForm";
 import HeadNav from "./components/header/HeadNav";
 import { Route,Routes,Navigate } from "react-router-dom";
@@ -8,7 +8,6 @@ import ShoppingCart from "./components/courses/ShopingCart";
 function App() {
   return (
     <div>
-      <HeadNav></HeadNav>
       <Routes>
       <Route path="/" element={<Navigate replace to="/dashboard" />} />
         <Route path="/profile" element={<ProfileForm />} />

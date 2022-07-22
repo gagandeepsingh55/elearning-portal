@@ -3,6 +3,7 @@ import AreaOfInterest from "./AreaOfInterest";
 import DisplayName from "./DisplayName";
 import AreYouStudent from "./AreYouStudent";
 import Header from "./../courses/Header"
+import Headnav from './../header/HeadNav'
 import './ProfileForm'
 const ProfileForm = (props) => {
   const submitHandler = (event) => {
@@ -11,6 +12,7 @@ const ProfileForm = (props) => {
 
   return (
     <>
+<Headnav></Headnav>
     <Header value="My Profile"></Header>
         <div className="column__1" style={{width: "20%"}}>
           <div className="row">
@@ -32,7 +34,7 @@ const ProfileForm = (props) => {
               <br/>
               <AreYouStudent></AreYouStudent>
               <br/>
-              <button type="submit">Save</button>
+              <button className="btn" style={{float: "right"}} type="submit" onClick={()=>{alert("Your Profile is Successfully Saved")}}>Save</button>
             </form>
           </div>
         </div>

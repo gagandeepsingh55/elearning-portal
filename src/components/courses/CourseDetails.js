@@ -3,16 +3,19 @@ import Header from "./Header";
 import classes from "./CourseDetails.css";
 import data from "../../resourses/coursesMockResponse.json"
 import { useParams } from "react-router-dom";
+import HeadNav from "../header/HeadNav";
+import { buttonStatusContext } from "./Dashboard";
+import { useContext } from "react";
 
 const CourseDetails = (props) => {
   const param = useParams();
-
+  const setButtonState = useContext(buttonStatusContext);
   const singleCourse = data.find((course) => course.id === param.courseid);
         
   return (
     <div className={classes.home}>
+      <HeadNav setButtonState={setButtonState}></HeadNav>
       <Header />
-
       <div className={classes.tab}>
         <div className={classes.sort}>
           <div className={classes.allcourse}>

@@ -1,23 +1,26 @@
 import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import { useState } from "react";
+import {buttonStatusContext} from "./../courses/Dashboard"
+import { useContext } from "react";
+import HeadNav from "../header/HeadNav";
 
-const ShoppingCart = ({ route }) => {
+
+const ShoppingCart = ({route}) => {
   const location = useLocation();
-  const [cartItems, setCartItems] = useState(location.state.cartItems);
-//   console.log("location.state");
-
+  const cartItems = useContext(buttonStatusContext);
+  // console.log("cartItems ShopingCart");
+  // console.log(cartItems);
 
   const onRemove = (product) => {
     console.log("Inside onRemove")
     const exist = location.state.cartItems.find((x) => x.id === product.id);
     if (exist) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      // setCartItems(cartItems.filter((x) => x.id !== product.id));
       
     }};
-//   console.log(location);
   return (
-    <>
+    <><HeadNav></HeadNav>
       <Header value="Shopping Cart"></Header>
       <div>{cartItems.length} Courses in Cart</div>
       <div className="row">
@@ -58,7 +61,6 @@ const ShoppingCart = ({ route }) => {
 
                   alt="delete"
                 />
-                {/* <div>{console.log(location.state.cartItems)}</div> */}
                 <div>{console.log(cartItems)}</div>
               </div>
             );
@@ -73,8 +75,6 @@ const ShoppingCart = ({ route }) => {
                 Checkout
               </button>
       </div></div>
-              
-    
       </div>
     </>
   );

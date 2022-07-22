@@ -23,10 +23,10 @@ const AllCourses = (props) => {
       <div className="column">
         <div className="row" style={{display: "inline-block"}}>All courses</div>
         <div className="row text-right" style={{display: "inline-block",float:"right"}}>
-          <CourseFilter
+          {/* <CourseFilter
             selected={filteredCourse}
             onChangeFilter={filterChangeHandler}
-          />
+          /> */}
         </div>
       </div>
       {/* {products.map((product) => ( */}

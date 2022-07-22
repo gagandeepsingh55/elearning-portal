@@ -3,12 +3,22 @@ import { useState } from "react";
 const ShowProfessionalForm = (props) => {
   const [experiance, setExperience] = useState();
   const [expertise, setExpertise] = useState();
+  const [enterendDate,setChangeValue] = useState('');
   const getExpertise = (event) => {
     setExpertise(event.target.value);
   };
   const getExperience = (event) => {
     setExperience(event.target.value);
   };
+  const checkInp =(event) => {
+    
+    if (!isNaN(event.target.value)) 
+    {
+      alert("Error Message : Please enter characters");
+    }else{
+      setChangeValue(event.target.value)
+    }
+  }
   return (
     <>
       <label
@@ -93,7 +103,7 @@ const ShowProfessionalForm = (props) => {
           <br/>
         Mention your role?
       </label>
-      <input type="text"></input>
+      <input onChange={checkInp} value={enterendDate} type="text"></input>
       <br/>
     </>
   );

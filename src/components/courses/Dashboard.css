@@ -1,18 +1,17 @@
-
-  
+* {
+  box-sizing: border-box;
+}
   /* Create two equal columns that floats next to each other */
   .column__1 {
     float: left;
     width: 66%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    padding: 0px 25px 0px 50px;
   }
 
   .column__2 {
     float: left;
     width: 34%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    padding: 0px 50px 0px 25px
   }
   
   /* Clear floats after the columns */

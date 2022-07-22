@@ -1,17 +1,28 @@
 import classes from "./MainHeader.module.css";
 import { useNavigate } from "react-router-dom";
-const HeadNav = () => {
+import {buttonStatusContext} from "./../courses/Dashboard"
+import { useContext } from "react";
+
+
+const HeadNav = (props) => {
+
   let navigate = useNavigate();
+  const setButtonState = useContext(buttonStatusContext);
+  // console.log("cartItems");
+  // console.log(cartItems);
 
   const routeChangeCart=()=>{
-    let path = '/cart';
+    setButtonState(true) || props.setButtonState(true)
+    let path = '/dashboard';
     navigate(path);
+    
   }
   const routeChange = () => {
     let path = '/profile/';
     navigate(path);
   };
   const routeChangeCourses = () => {
+    setButtonState(false) || props.setButtonState(false)
     let path = '/dashboard';
     navigate(path);
   };

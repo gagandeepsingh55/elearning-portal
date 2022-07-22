@@ -2,11 +2,10 @@
     margin: 1rem 0;
     padding: 1rem;
     display: flex;
-    justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     background: #ffffff 0% 0% no-repeat padding-box;
-  
+    justify-content: left;
     flex-direction: row;
   
     height: 100px;
@@ -155,5 +154,26 @@
     padding: 10px;
   }
   
-  
-  
+  .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
+ .class{
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px; /* fallback */
+  max-height: 30px; /* fallback */
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.btn{
+  background: #FF6738 0% 0% no-repeat padding-box;
+border-radius: 4px;
+opacity: 1;
+}
